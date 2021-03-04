@@ -1,0 +1,7 @@
+.idea
+.DS_Store
+/nbproject
+error_log
+npm-debug.log
+yarn-error.log
+.eslintcache

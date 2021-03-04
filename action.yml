@@ -1,0 +1,13 @@
+name: Fetch Secret
+description: Fetches a secret from AWS Secrets Manager and installs it at the specified location
+inputs:
+  secretPath:
+    description: The name of the secret
+    required: true
+  targetFile:
+    description: The filename
+    required: true
+
+runs:
+  using: 'node12'
+  main: 'index.js'
