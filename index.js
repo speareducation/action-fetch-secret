@@ -25,4 +25,6 @@ async function handle() {
     fs.writeFileSync(targetFile, secretPayload);
 }
 
-handle();
+handle()
+    .then(() => console.log('Done'))
+    .catch(error => core.setFailed(error));
