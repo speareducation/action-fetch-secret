@@ -11,7 +11,7 @@ function createKeyValue(key, value) {
 }
 
 async function handle() {
-    console.log(`Fetching ${secretPath}`);
+    console.log(`Fetching ${SecretId}`);
     const response = await secretsManager.getSecretValue({ SecretId }).promise();
     console.log(`Retrieved version ${secretData.VersionId}`);
 
