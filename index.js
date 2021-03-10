@@ -13,7 +13,7 @@ function createKeyValue(key, value) {
 async function handle() {
     console.log(`Fetching ${SecretId}`);
     const response = await secretsManager.getSecretValue({ SecretId }).promise();
-    console.log(`Retrieved version ${secretData.VersionId}`);
+    console.log(`Retrieved version ${response.VersionId}`);
 
     const secretData = JSON.parse(response.SecretString);
     
