@@ -5,9 +5,11 @@ const fs = require('fs');
 const secretsManager = new SecretsManager();
 const SecretId = core.getInput('secretPath');
 const targetFile = core.getInput('targetFile');
+const branchName = core.getInput('branchName');
 
 function createKeyValue(key, value) {
-    return value ? `${key}=${value}` : key; // [production] support
+    let adjustedValue = value ? value.replaceAll('{BRANCH}', branchName) : null;
+    return value ? `${key}=${adjustedValue}` : key; // [production] support
 }
 
 async function handle() {

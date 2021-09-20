@@ -11,6 +11,9 @@ Fetches a secret from AWS Secrets Manager and installs it at the specified locat
 ### `targetFile`
 **Required** The filename for the secret
 
+### `branchName`
+**Optional** The name of the branch to replaced {branch} tokens with.
+
 ## Example usage
 ```
 - id: fetch-secret

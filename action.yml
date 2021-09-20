@@ -7,6 +7,9 @@ inputs:
   targetFile:
     description: The filename
     required: true
+  branchName:
+    description: Optional name of a branch in the case that this is a sandbox deployment to update branch tokens
+    required: false
 
 runs:
   using: 'node12'
