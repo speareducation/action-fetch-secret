@@ -1,8 +1,8 @@
-const { SecretsManager } = require('aws-sdk');
+const { SecretsManagerClient, GetSecretValueCommand } = require('@aws-sdk/client-secrets-manager');
 const core = require('@actions/core');
 const fs = require('fs');
 
-const secretsManager = new SecretsManager();
+const secretsManager = new SecretsManagerClient();
 const SecretId = core.getInput('secretPath');
 const targetFile = core.getInput('targetFile');
 
@@ -12,7 +12,7 @@ function createKeyValue(key, value) {
 
 async function handle() {
     console.log(`Fetching ${SecretId}`);
-    const response = await secretsManager.getSecretValue({ SecretId }).promise();
+    const response = await secretsManager.send(new GetSecretValueCommand({ SecretId }));
     console.log(`Retrieved version ${response.VersionId}`);
 
     const secretData = JSON.parse(response.SecretString);
